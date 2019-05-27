@@ -1,0 +1,22 @@
+<p>
+  <strong>Student name:</strong>
+  <%= @user.name %>
+</p>
+ <h2>Groups</h2>
+<% @user.groups.each do |group| %>
+  <p>
+    <strong>Group</strong>
+    <%= group.gname %>
+  </p>
+<% end %>
+ <h2>Add a group</h2>
+ <%= form_with(model: [ @user, @user.groups.build ], local: true) do |form| %>
+ <p>
+    <%= form.label :group %><br>
+    <%= form.text_field :group %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+  <%end%>
